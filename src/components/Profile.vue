@@ -1,23 +1,27 @@
 <template>
-  <div>
-    <navigation />
-    <div>{{user.email}}</div>
+  <div v-if="this.$store.state.user">
+    <v-card class="mx-auto mt-5" max-width="300">
+      <v-img
+        class="white--text align-end"
+        height="200px"
+        :src="this.$store.state.user.photoURL"
+      >
+      </v-img>
+
+      <v-card-subtitle class="pb-0">Your Profile</v-card-subtitle>
+
+      <v-card-text class="text--primary">
+        <div>{{ this.$store.state.user.displayName }}</div>
+
+        <div>Email: {{ this.$store.state.user.email }}</div>
+        <div v-if="this.$store.state.user.phoneNumber">
+          Phone Number: {{ user.phoneNumber }}
+        </div>
+      </v-card-text>
+    </v-card>
   </div>
 </template>
-<script>
-import navigation from "@/components/NavBar.vue";
 
-//import navigation from "@/components/NavBar.vue";
-//import store from "./../store/index";
-//import firebase from "firebase";
-export default {
-  components: {
-    navigation
-  },
-  data() {
-    return {
-      user: this.$store.state.user
-    };
-  }
-};
+<script>
+export default {}
 </script>

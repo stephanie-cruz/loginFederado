@@ -1,13 +1,21 @@
 <template>
-  <section>
-    <navigation></navigation>
-    <h5 class="center-align">Login</h5>
-    <section id="firebaseui-auth-container"></section>
-  </section>
+  <div>
+    <v-card width="400px" class="mt-5 mx-auto">
+      <v-card-title>
+        <h1>Login</h1>
+      </v-card-title>
+      <v-divider></v-divider>
+
+      <v-card-text>
+        <v-form>
+          <div id="firebaseui-auth-container"></div>
+        </v-form>
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <script>
-import navigation from "@/components/NavBar.vue";
 import firebase from "firebase";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
@@ -19,14 +27,12 @@ export default {
       user: null
     };
   },
-  components: {
-    navigation
-  },
   mounted() {
     let ui = firebaseui.auth.AuthUI.getInstance();
     if (!ui) {
       ui = new firebaseui.auth.AuthUI(firebase.auth());
     }
+
     var uiConfig = {
       signInFlow: "popup",
       signInSuccessUrl: "/",

@@ -6,13 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: null,
-    persona: {
-      nombre: 'michelle',
-    },
   },
   mutations: {
     SET_USER_DATA(state, userData) {
-      state.user = JSON.parse(JSON.stringify(userData))
+      state.user = userData
     },
   },
   actions: {

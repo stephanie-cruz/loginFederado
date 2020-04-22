@@ -1,18 +1,30 @@
 <template>
-  <section>
-    <navigation></navigation>
-    <h5 class="center-align">Home</h5>
-  </section>
+  <div>
+    <v-card width="800px" class="mt-5 mx-auto">
+      <v-card-title>
+        <h3 v-if="user">Bienvenido, {{ user.displayName }}</h3>
+        <h3 v-else>Bienvenido, por favor inica sesión</h3>
+      </v-card-title>
+    </v-card>
+  </div>
 </template>
 
 <script>
-import navigation from "@/components/NavBar.vue";
+import firebase from "firebase"; //import firebaseui from 'firebaseui'
+
 export default {
   data() {
-    return {};
+    return {
+      user: null
+    };
   },
-  components: {
-    navigation
+  beforeCreate() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.state.user = user;
+        this.user = user;
+      }
+    });
   }
 };
 </script>

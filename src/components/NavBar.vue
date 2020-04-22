@@ -1,35 +1,50 @@
 <template>
-  <nav>
-    <div class="nav-wrapper">
-      <!-- <a href="#" class="brand-logo">Logo</a> -->
-      <router-link to="/" class="brand-logo" tag="a">Home</router-link>
-
-      <ul id="nav-mobile" class="right">
-        <li>
-          <router-link to="/login">Login</router-link>
-        </li>
-        <li>
-          <router-link to="/profile">Profile</router-link>
-        </li>
-        <li>
-          <a @click="signOut">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div>
+    <v-app-bar app color="primary" dark>
+      <v-toolbar-title>Money Gain</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        v-for="link in links"
+        :to="link.url"
+        :key="`${link.label}-footer-link`"
+        text
+        rounded
+        >{{ link.label }}</v-btn
+      >
+      <v-btn v-if="this.$store.state.user" @click="logOut" text rounded>
+        LogOut
+      </v-btn>
+    </v-app-bar>
+  </div>
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from 'firebase'
 export default {
-  methods: {
-    signOut(e) {
-      e.stopPropagation();
-      firebase.auth().signOut();
-      this.$router.push({
-        path: "/login"
-      });
+  data() {
+    return {
+      links: [
+        {
+          label: 'Login',
+          url: '/login',
+        },
+        {
+          label: 'Profile',
+          url: '/profile',
+        },
+      ],
     }
-  }
-};
+  },
+
+  methods: {
+    logOut(e) {
+      e.stopPropagation()
+      firebase.auth().signOut()
+      this.$store.state.user = null
+      this.$router.push({
+        path: '/login',
+      })
+    },
+  },
+}
 </script>
