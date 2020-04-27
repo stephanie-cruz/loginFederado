@@ -1,0 +1,35 @@
+{
+    "products": [
+      {
+        "id": "1234",
+        "title": "MackBook Pro Air 8gb",
+        "price": 1200,
+        "description":"Lorem Ipsum Dolor",
+        "img": "https://icdn4.digitaltrends.com/image/digitaltrends_es/macbook-air-2018-review-5887-2-500x500.jpg"
+      },
+      {
+        "id": "1584",
+        "title": "iPad v2 Pro Max",
+        "price": 345.99,
+        "description":"Lorem Ipsum Dolor",
+        "img": "https://cdn.pocket-lint.com/r/s/970x/assets/images/149321-tablets-review-review-apple-ipad-102-inch-initial-review-tried-and-trusted-goes-bigger-image1-npbhfzogfj-jpg.webp"
+
+        
+      },
+      {
+        "id": "2794",
+        "title": "Laptop Hp pavilion",
+        "price": 835.99,
+        "description":"Lorem Ipsum Dolor",
+        "img": "https://images-na.ssl-images-amazon.com/images/I/81NbkJz9M-L._AC_SL1500_.jpg"  
+      },
+      {
+        "id": "4619",
+        "title": "iPhone 11 124gb",
+        "price": 920,
+        "description":"Lorem Ipsum Dolor",
+        "img": "https://i.blogs.es/187a45/iphone-11-pro-02/450_1000.jpg"
+      }
+    ]
+  }
+  

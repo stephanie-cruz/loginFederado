@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <v-app>
+    
       <Navegation />
       <!--Login -->
-      <v-content>
         <router-view :key="$route.fullPath" />
-      </v-content>
-    </v-app>
+    
   </div>
 </template>
 
@@ -24,3 +22,16 @@ export default {
   }),
 }
 </script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Lexend+Giga&display=swap');
+#app{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 62.5%;
+  line-height: 1.7;
+color: black;
+}
+// Lexend Giga
+</style>
